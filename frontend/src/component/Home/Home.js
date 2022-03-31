@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withStyles } from '@material-ui/styles';
 import styles from './homeStyles';
 import Product from './Product';
+import MetaData from '../layout/MetaData';
+import {getProduct} from '../../actions/productAction';
+import {useSelector, useDispatch} from "react-redux";
 
 const product = {
     name: 'Monkey NFT',
@@ -11,8 +14,15 @@ const product = {
 };
 
 const Home = ({classes}) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        
+    }, []);
+
     return ( 
         <Fragment>
+            <MetaData title="Artyft" />
             <div className={classes.banner}>
                 <p>Welcome to Artyft</p>
                 <h1>Pakistan's First NFT Marketplace.</h1>
