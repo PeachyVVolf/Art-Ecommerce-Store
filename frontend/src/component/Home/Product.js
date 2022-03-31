@@ -4,24 +4,25 @@ import ReactStars from 'react-rating-stars-component';
 import styles from './productStyles';
 import { withStyles } from '@material-ui/styles';
 
+const Product = ({product, classes}) => {
+    
 const options = {
     edit: false,
     color: "black",
     activeColor: "tomato",
-    value: 2.5,
+    value: product.ratings,
     isHalf: true,
     size: window.innerWidth < 700 ? 15: 20
-}
+};
 
-const Product = ({product, classes}) => {
     return ( 
-        <Link className={classes.productCard} to={product._id}>
-            <img src={product.image[0].url} alt={product.name}/>
+        <Link className={classes.productCard} to={`/product/${product._id}`}>
+            <img src={product.images[0].url} alt={product.name}/>
             <p>{product.name}</p>
             <div>
-                <ReactStars {...options} /><span> (256) Reviews</span>
+                <ReactStars {...options} /><span> {`${product.numberOfReviews} Reviews`}</span>
             </div>
-            <span>{product.price}</span>
+            <span>{`Rs. ${product.price}`}</span>
         </Link>
      );
 };

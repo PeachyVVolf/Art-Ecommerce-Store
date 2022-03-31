@@ -1,5 +1,3 @@
-const bgColor = 'rgb(34,33,33)';
-const textColor = 'white';
 const headingFont = '"Franklin Gothic Medium", "Arial Narrow", "Arial"';
 const bodyFont = '"Lucid Sans", "Lucid Sans Regular", "Lucid Grande"';
 const orangeColor = '#AD0E82';

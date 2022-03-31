@@ -1,9 +1,7 @@
 const bgColor = 'rgb(34,33,33)';
-const textColor = 'white';
 const headingFont = '"Franklin Gothic Medium", "Arial Narrow", "Arial"';
 const bodyFont = '"Lucid Sans", "Lucid Sans Regular", "Lucid Grande"';
 const orangeColor = '#AD0E82';
-const purpleColor= '#800002';
 
 export default {
     productCard: {
@@ -11,7 +9,6 @@ export default {
         display: 'flex',
         flexDirection: 'column',
         textDecoration: 'none',
-        color: `${textColor}`,
         margin: '2vmax',
         padding: '1vmax',
         color: `${bgColor}`,
