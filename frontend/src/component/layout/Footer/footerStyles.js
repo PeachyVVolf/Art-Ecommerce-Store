@@ -4,7 +4,7 @@ const headingFont = '"Franklin Gothic Medium", "Arial Narrow", "Arial"';
 const bodyFont = '"Lucid Sans", "Lucid Sans Regular", "Lucid Grande"';
 const orangeColor = '#AD0E82';
 
-export default {
+const styles = {
     footer:{
         marginTop: '10vmax',
         padding: '2vmax',
@@ -66,4 +66,6 @@ export default {
             }
         }
     }
-}
+};
+
+export default styles;

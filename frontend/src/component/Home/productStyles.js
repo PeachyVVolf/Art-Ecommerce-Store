@@ -3,7 +3,7 @@ const headingFont = '"Franklin Gothic Medium", "Arial Narrow", "Arial"';
 const bodyFont = '"Lucid Sans", "Lucid Sans Regular", "Lucid Grande"';
 const orangeColor = '#AD0E82';
 
-export default {
+const styles = {
     productCard: {
         width: '16vmax',
         display: 'flex',
@@ -68,3 +68,5 @@ export default {
         }
     }
 };
+
+export default styles;

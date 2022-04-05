@@ -4,7 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 import styles from './productStyles';
 import { withStyles } from '@material-ui/styles';
 
-const Product = ({product, classes}) => {
+const ProductCard = ({product, classes}) => {
     
 const options = {
     edit: false,
@@ -27,4 +27,4 @@ const options = {
      );
 };
 
-export default withStyles(styles)(Product);
+export default withStyles(styles)(ProductCard);

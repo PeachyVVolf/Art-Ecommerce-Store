@@ -3,7 +3,7 @@ const bodyFont = '"Lucid Sans", "Lucid Sans Regular", "Lucid Grande"';
 const orangeColor = '#AD0E82';
 const purpleColor= '#800002';
 
-export default {
+const styles = {
     banner: {
         backgroundImage: `linear-gradient(to right, ${orangeColor}, ${purpleColor})`,
         height: '100vmin',
@@ -59,3 +59,5 @@ export default {
         maxWidth: '100%'
     }
 };
+
+export default styles;

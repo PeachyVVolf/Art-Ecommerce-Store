@@ -1,0 +1,126 @@
+.reviewsHeading {
+    color: white;
+    font: 500 1.4vmax "Franklin Gothic Medium";
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    padding: 1vmax;
+    width: 20vmax;
+    margin: auto;
+    margin-bottom: 4vmax;
+
+}
+.reviews {
+    display: flex;
+    overflow: auto;
+}
+.reviewCard {
+    flex: none;
+    box-shadow: 0 0 7px rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 30vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vmax;
+    padding: 3vmax;
+}
+.reviewCard > img {
+    width: 5vmax;
+}
+.reviewCard > p{
+    color: white;
+    font: 600 0.9vmax "Franklin Gothic Medium";
+}
+.reviewCard > span {
+    color: white;
+    font: 300 0.8vmax "Lucid Sans";
+}
+.noReviews {
+    font: 400 1.3vmax "Franklin Gothic Medium";
+    text-align: center;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .ProductDetails {
+        display: flex;
+        flex-direction: column;
+        height: unset;
+    }
+    .ProductDetails > div:last-child {
+        align-items: center;
+    }
+    .carousel {
+        width: 600px !important;
+    }
+    .carouselImage {
+        width: 50vmax !important;
+    }
+    .details {
+        margin-top: 10%;
+        margin-left: 10vmax;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .detailsBlock1 > h2 {
+        font-size: 2.8vmax;
+        text-align: center;
+    }
+    .detailsBlock1 > p {
+        text-align: center;
+        font-size: 1vmax;
+    }
+    .detailsBlock2 {
+        justify-content: center;
+    }
+    .detailsBlock2 > span {
+        font-size: 1.5vmax;
+    }
+    .detailsBlock3 > h1 {
+        font: 700 3vmax "Franklin Gothic Medium";
+        text-align: center;
+    }
+    .detailsBlock31 {
+        flex-direction: column;
+    }
+    .detailsBlock311 {
+        padding: 2vmax 0;
+    }
+    .detailsBlock311 > button {
+        padding: 1.2vmax;
+        width: 4vmax;
+    }
+    .detailsBlock311 > input {
+        padding: 1.5vmax;
+        padding-top: 0.8vmax !important;
+        padding-bottom: 0.7vmax !important;
+        width: 3vmax !important;
+        font: 400 1.8vmax "Franklin Gothic Medium" !important   ;
+    }
+    .detailsBlock31 > button:last-child {
+        font: 500 1.7vmax "Franklin Gothic Medium" !important;
+        padding: 1.5vmax !important;
+        width: 20vmax !important;
+        margin: 3vmax 0 !important;
+    }
+    .detailsBlock3 > p{
+        padding: 2.5vmax 0 !important;
+        text-align: center !important;
+        font: 400 2vmax "Franklin Gothic Medium" !important;
+    }
+    .detailsBlock4 {
+        font: 500 2.5vmax "Lucid Sans" !important;
+    }
+    .detailsBlock4 > p {
+        font: 300 1.8vmax "Lucid Sans" !important;
+    }
+    .submitReview {
+        font: 500 1.7vmax "Franklin Gothic Medium" !important;
+        padding: 1.5vmax;
+        width: 20vmax;
+        margin: 3vmax 0;
+    }
+}

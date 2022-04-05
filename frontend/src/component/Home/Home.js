@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect } from 'react';
 import { withStyles } from '@material-ui/styles';
 import styles from './homeStyles';
-import Product from './Product';
+import ProductCard from './ProductCard';
 import MetaData from '../layout/MetaData';
-import {getProduct} from '../../actions/productAction';
+import {clearErrors, getProduct} from '../../actions/productAction';
 import {useSelector, useDispatch} from "react-redux";
 import Loader from '../layout/Loader/Loader';
 import {useAlert} from "react-alert";
@@ -11,12 +11,13 @@ import {useAlert} from "react-alert";
 const Home = ({classes}) => {
     const alert = useAlert();
     const dispatch = useDispatch();
-    const {loading, error, products, productsCount} = useSelector(state=>state.products)
+    const {loading, error, products} = useSelector(state=>state.products)
 
     useEffect(() => {
         if(error){
-            return alert.error(error);
-        }
+            alert.error(error);
+            dispatch(clearErrors())
+;        }
         dispatch(getProduct());
     }, [dispatch, error, alert]);
 
@@ -38,7 +39,7 @@ const Home = ({classes}) => {
                 <h2 className={classes.homeHeading}>Featured NFTs</h2>
                 <div className={classes.container} id='featuredContainer'>
                     {products && products.map(product=>(
-                        <Product product={product} />
+                        <ProductCard key={product._id} product={product} />
                     ) )}
                 </div>
             </Fragment>

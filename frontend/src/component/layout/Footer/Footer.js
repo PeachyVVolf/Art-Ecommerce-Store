@@ -20,9 +20,9 @@ const Footer = ({classes}) => {
             </div>
             <div className={classes.rightFooter}>
                 <h4>Follow Us</h4>
-                <a href=''><FontAwesomeIcon icon={faInstagram} /> Instagram</a>
-                <a href=''><FontAwesomeIcon icon={faFacebook} /> Facebook</a>
-                <a href=''><FontAwesomeIcon icon={faPinterestP} /> Pintrest</a>
+                <a href='/'><FontAwesomeIcon icon={faInstagram} /> Instagram</a>
+                <a href='/'><FontAwesomeIcon icon={faFacebook} /> Facebook</a>
+                <a href='/'><FontAwesomeIcon icon={faPinterestP} /> Pintrest</a>
             </div>
         </footer>
      );
