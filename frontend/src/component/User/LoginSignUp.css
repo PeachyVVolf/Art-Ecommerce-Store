@@ -1,0 +1,209 @@
+.LoginSignUpContainer {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+.neonLeaf { 
+    z-index: -10000;
+    top: 19%;
+    left: 15%;
+    position: absolute;
+}
+.neonLeaf1 { 
+    z-index: -10000;
+    bottom: 8%;
+    left: 7%;
+    position: absolute;
+    transform: rotateZ(95deg);
+}
+.neonLeaf2 { 
+    z-index: -10000;
+    top: 19%;
+    right: 15%;
+    position: absolute;
+    transform: rotateZ(195deg);
+}
+.neonLeaf3 { 
+    z-index: -10000;
+    bottom: 9%;
+    right: 25%;
+    position: absolute;
+}
+.neonLeaf4 { 
+    z-index: -10000;
+    top: 29%;
+    left: -8%;
+    position: absolute;
+    transform: rotateZ(295deg);
+}
+.LoginSignUpBox {
+    background-color: black;
+    width: 25vw;
+    height: 70vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 45px #600ead;
+    border-radius: 4px;
+}
+.login_signUp_toggle {
+    display: flex;
+    height: 3vmax;
+}
+.login_signUp_toggle > p {
+    color: #AD0E82;
+    font: 300 1vmax "Franklin Gothic Medium";
+    transition: all 0.5s;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+.login_signUp_toggle > p:hover {
+    color: #800002;
+}
+.switcherBtn {
+    background-color: white;
+    height: 3px;
+    width: 50%;
+    border: none;
+    transition: all 0.5s;
+}
+.loginForm,
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 2vmax;
+    justify-content: space-evenly;
+    height: 70%;
+    transition: all 0.5s;
+}
+.signUpForm{
+    transform: translateY(-100%) translateX(-100vmax);
+}
+.loginForm > div,
+.signUpForm > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.loginForm > div > input,
+.signUpForm > div > input {
+    padding: 1vmax 4vmax;
+    padding-right: 1vmax;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #AD0E82;
+    box-shadow: 0 2px 25px #AD0E82;
+    border-radius: 4px;
+    font: 300 0.9vmax cursive;
+    outline: none;
+}
+.loginForm > div > svg,
+.signUpForm > div > svg {
+    position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.6vmax;
+    color: rgba(0, 0, 0, 0.432);
+}
+.loginForm > a {
+    color: white;
+    text-decoration: none;
+    align-self: flex-end;
+    transition: all 0.5s;
+    font: 500 0.8vmax "Franklin Gothic Medium";
+}
+.loginForm > a:hover {
+    cursor: pointer;
+    color: #AD0E82;;
+}
+#registerImage > img {
+    width: 3vmax;
+    border-radius: 100%;
+}
+#registerImage > input {
+    display: flex;
+    padding: 0;
+}
+#registerImage > input::file-selector-button {
+    cursor: pointer;
+    width: 100%;
+    height: 5vh;
+    z-index: 2;
+    margin: 0%;
+    border: none;
+    font: 400 0.8vmax cursive;
+    transition: all 0.5s;
+    padding: 0 1vmax;
+    color: black;
+    background-color: white;
+}
+#registerImage > input::file-selector-button:hover {
+    background-color: #800002;
+    color: white;
+}
+.loginBtn,
+.signUpBtn {
+    border: none;
+    background-color: #AD0E82;
+    color: white;
+    font: 300 0.9vmax "Franklin Gothic Medium";
+    width: 100%;
+    padding: 0.8vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.452);
+}
+.loginBtn:hover,
+.signUpBtn:hover {
+    background-color: #800002;
+}
+.shiftToLeft {
+    transform: translateX(-100%);
+}
+.shiftToNeutral {
+    transform: translateX(0%);
+}
+.shiftToNeutralForm {
+    transform: translateX(0%) translateY(-100%);
+}
+.shiftToRight {
+    transform: translateX(100%);
+}
+@media screen and (max-width: 600px) {
+    .LoginSignUpContainer {
+        background-color: black;
+
+    }
+    .LoginSignUpBox{
+        width: 100vw;
+        height: 95vh;
+    }
+    .login_signUp_toggle{
+        height: 5vmax;
+    }
+    .login_signUp_toggle > p {
+        font: 300 1.5vmax "Franklin Gothic Medium";
+    }
+    .loginForm,
+    .signUpForm {
+        padding: 5vmax;
+    }
+    .loginForm > div > input,
+    .signUpForm > div > input {
+        padding: 2.5vmax 5vmax;
+        font: 300 1.7vmax cursive;
+    }
+    
+}
