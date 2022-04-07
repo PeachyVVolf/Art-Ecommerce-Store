@@ -30,7 +30,6 @@ const Products = () => {
 
     const {products, loading, error, productsCount, resultPerPage, 
         filteredProductsCount} = useSelector(state=>state.products);
-    // TODO: Not fetching productsCount and resultsPerPage
     const params = useParams();
     const keyword = params.keyword;
 
@@ -110,13 +109,12 @@ const Products = () => {
                 </fieldset>
             </div>
 
-            {/* TODO: Fix when can fetch */}
-            {/* {resultPerPage < count && ( */}
+            {resultPerPage < count && (
                 <div className='paginationBox'>
                     <Pagination 
                         activePage={currentPage}
-                        itemsCountPerPage={6}
-                        totalItemsCount={8}
+                        itemsCountPerPage={resultPerPage}
+                        totalItemsCount={productsCount}
                         onChange={setCurrentPageNo}
                         nextPageText="Next"
                         prevPageText="Prev"
@@ -128,7 +126,7 @@ const Products = () => {
                         activeLinkClass='pageLinkActive'
                     />
                 </div>
-            {/* )} */}
+            )}
         </Fragment>
         }
     </Fragment>

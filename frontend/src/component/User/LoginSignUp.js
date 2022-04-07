@@ -1,4 +1,5 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { Fragment, useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginSignUp.css';
 import Loader from '../layout/Loader/Loader';
 import { Link } from 'react-router-dom';
@@ -9,8 +10,16 @@ import neonLeaf from '../../images/neonLeaf.png';
 import neonLips from '../../images/neonLips.png';
 import neonSkull from '../../images/neonSkull.png';
 import neonDonut from '../../images/neonDonut.png';
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login, register } from '../../actions/userAction';
+import { useAlert } from 'react-alert';
 
 const LoginSignUp = () => {
+
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const navigate = useNavigate();
+  const{ error, loading, isAuthenticated } = useSelector(state => state.user);
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -46,8 +55,21 @@ const LoginSignUp = () => {
     }
   };
 
-  const loginSubmit = () => {
-    console.log("Log In");
+  useEffect(() => {
+    if(error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+
+    if(isAuthenticated){
+      navigate("/account");
+    }
+  }, [dispatch, error, alert, isAuthenticated, navigate])
+  
+
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, loginPassword));
   };
   const registerSubmit = (e) => {
     e.preventDefault();
@@ -58,18 +80,19 @@ const LoginSignUp = () => {
     myForm.set("password", password);
     myForm.set("avatar", avatar);
 
-    console.log("Registered");
+    dispatch(register(myForm));
   };
   const registerDataChange = (e) => {
-    if(e.target.name === 'avatar') {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if(reader.readyState === 2){
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        };
-        reader.readAsDataURL(e.target.files[0]);
-      }
+    if(e.target.name === "avatar") {
+      var file = e.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        setAvatar(e.target.result);
+        setAvatarPreview(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+      
     }else{
       setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -77,108 +100,114 @@ const LoginSignUp = () => {
 
   return (
     <Fragment>
-      <div className='LoginSignUpContainer'>
-        {/* Neon Leaves */}
-        <div>
-          <div className='neonLeaf'>       
-            <img src={neonDonut} alt='neonLeaf' width='200px'/>
-          </div>
-          <div className='neonLeaf1'>       
-            <img src={neonSkull} alt='neonLeaf' width='160px'/>
-          </div>
-          <div className='neonLeaf2'>       
-            <img src={neonLeaf} alt='neonLeaf' width='200px'/>
-          </div>
-          <div className='neonLeaf3'>       
-            <img src={neonLips} alt='neonLeaf' width='200px'/>
-          </div>
-          <div className='neonLeaf4'>       
-            <img src={neonLeaf} alt='neonLeaf' width='200px'/>
-          </div>
-        </div>
-        <div className='LoginSignUpBox'>
+      {loading ?
+        <Loader />
+      :
+        <Fragment>
+        <div className='LoginSignUpContainer'>
+          {/* Neon Leaves */}
           <div>
-            <div className='login_signUp_toggle'>
-              <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
-              <p onClick={(e) => switchTabs(e, "register")}>REGISTER</p>
+            <div className='neonLeaf'>       
+              <img src={neonDonut} alt='neonLeaf' width='200px'/>
             </div>
-              <button className='switcherBtn' ref={switcherTab}></button>
+            <div className='neonLeaf1'>       
+              <img src={neonSkull} alt='neonLeaf' width='160px'/>
+            </div>
+            <div className='neonLeaf2'>       
+              <img src={neonLeaf} alt='neonLeaf' width='200px'/>
+            </div>
+            <div className='neonLeaf3'>       
+              <img src={neonLips} alt='neonLeaf' width='200px'/>
+            </div>
+            <div className='neonLeaf4'>       
+              <img src={neonLeaf} alt='neonLeaf' width='200px'/>
+            </div>
           </div>
-          <form className='loginForm' ref={loginTab} onSubmit={loginSubmit}>
-            <div className='loginEmail'>
-              <MailOutlineIcon />
-              <input
-                type="email"
-                placeholder='Email'
-                required
-                value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
-              />
+          <div className='LoginSignUpBox'>
+            <div>
+              <div className='login_signUp_toggle'>
+                <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
+                <p onClick={(e) => switchTabs(e, "register")}>REGISTER</p>
+              </div>
+                <button className='switcherBtn' ref={switcherTab}></button>
             </div>
-            <div className='loginPassword'>
-              <LockOpenIcon />
-              <input
-                type="password"
-                placeholder='Passowrd'
-                required
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
-              />
-            </div>
-            <Link to="/password/forgot">Forgot Password?</Link>
-            <input type="submit" value="Login" className='loginBtn' />
-          </form>
-          <form className='signUpForm' ref={registerTab} encType="multipart/form-data" onSubmit={registerSubmit}>
-            <div className='signUpName'>
-              <FaceIcon />
-              <input
-                type="text"
-                placeholder='Name'
-                required
-                name='name'
-                value='name'
-                onChange={registerDataChange}
-              />
-            </div>
-            <div className='signUpEmail'>
-              <MailOutlineIcon />
+            <form className='loginForm' ref={loginTab} onSubmit={loginSubmit}>
+              <div className='loginEmail'>
+                <MailOutlineIcon />
                 <input
                   type="email"
                   placeholder='Email'
                   required
-                  name='email'
-                  value={email}
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                />
+              </div>
+              <div className='loginPassword'>
+                <LockOpenIcon />
+                <input
+                  type="password"
+                  placeholder='Passowrd'
+                  required
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+              </div>
+              <Link to="/password/forgot">Forgot Password?</Link>
+              <input type="submit" value="Login" className='loginBtn' />
+            </form>
+            <form className='signUpForm' ref={registerTab} encType="multipart/form-data" onSubmit={registerSubmit}>
+              <div className='signUpName'>
+                <FaceIcon />
+                <input
+                  type="text"
+                  placeholder='Name'
+                  required
+                  name='name'
+                  value={name}
                   onChange={registerDataChange}
                 />
-            </div>
-            <div className='signUpPassword'>
-              <LockOpenIcon />
+              </div>
+              <div className='signUpEmail'>
+                <MailOutlineIcon />
+                  <input
+                    type="email"
+                    placeholder='Email'
+                    required
+                    name='email'
+                    value={email}
+                    onChange={registerDataChange}
+                  />
+              </div>
+              <div className='signUpPassword'>
+                <LockOpenIcon />
+                <input
+                  type="password"
+                  placeholder='Passowrd'
+                  required
+                  name='password'
+                  value={password}
+                  onChange={registerDataChange}
+                />
+              </div>
+              <div id='registerImage'>
+                <img src={avatarPreview} alt="Avatar Preview" />
+                <input
+                  type="file"
+                  name="avatar"
+                  accept="image/"
+                  onChange={registerDataChange}
+                />
+              </div>
               <input
-                type="password"
-                placeholder='Passowrd'
-                required
-                name='password'
-                value={password}
-                onChange={registerDataChange}
+                type="submit"
+                value="Register"
+                className='signUpBtn'
               />
-            </div>
-            <div id='registerImage'>
-              <img src={avatarPreview} alt="Avatar Preview" />
-              <input
-                type="file"
-                name="avatar"
-                accept="image/"
-                onChanage={registerDataChange}
-              />
-            </div>
-            <input
-              type="submit"
-              value="Register"
-              className='signUpBtn'
-            />
-          </form>
+            </form>
+          </div>
         </div>
-      </div>
+        </Fragment>
+      }
     </Fragment>
   )
 }

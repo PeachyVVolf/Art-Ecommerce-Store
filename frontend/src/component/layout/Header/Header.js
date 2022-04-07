@@ -6,25 +6,9 @@ import './header.css';
 const orangeColor = '#930638';
 
 const Header = () => {
+
     return ( 
         <div>
-            <nav className="navigation">
-                <div
-                    className="navigation-menu">
-                    <ul>
-                    <li>
-                        <a href="/search">Search</a>
-                    </li>
-                    <li>
-                        <a href="/about">Cart</a>
-                    </li>
-                    <li>
-                        <a href="/login">Login/SignUp</a>
-                    </li>
-                    </ul>
-                </div>
-                </nav>
-
             <ReactNavbar 
                 logo={logo}
                 logoHoverColor="black"

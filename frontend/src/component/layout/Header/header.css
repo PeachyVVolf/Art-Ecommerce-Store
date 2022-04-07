@@ -1,37 +1,10 @@
-.navigation {
-    height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 0.5rem 0rem;
-    background-color: transparent;
-    color: white;
+.speedDial {
+    position: fixed;
+    right: 3vmax;
+    top: 3vmax;
 }
-.navigation-menu {
-    margin-left: auto;
-}
-.navigation-menu ul {
-    display: flex;
-    padding: 0;
-}
-.navigation-menu li {
-    list-style-type: none;
-    margin: 0 1rem;
-}
-.navigation-menu li a {
-    text-decoration: none;
-    display: block;
-    color: white;
-    font: 400 1vmax "Franklin Gothic Medium";
-    width: 100%;
-    transition: all 0.3s;
-}
-.navigation-menu li a:hover {
-    color: #AD0E82;
-}
-@media screen and (max-width: 768px) {
-    .navigation-menu li a {
-        font-size: 2vmax;
-    }
+.speedDialIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
 }

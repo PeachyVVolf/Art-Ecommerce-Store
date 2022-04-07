@@ -1,4 +1,4 @@
-.LoginSignUpContainer {
+.updateProfileContainer {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -43,7 +43,7 @@
     position: absolute;
     transform: rotateZ(295deg);
 }
-.LoginSignUpBox {
+.updateProfileBox {
     background-color: black;
     width: 25vw;
     height: 70vh;
@@ -52,31 +52,16 @@
     box-shadow: 0 2px 45px #600ead;
     border-radius: 4px;
 }
-.login_signUp_toggle {
-    display: flex;
-    height: 3vmax;
-}
-.login_signUp_toggle > p {
-    color: #AD0E82;
-    font: 300 1vmax "Franklin Gothic Medium";
-    transition: all 0.5s;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    width: 100%;
-}
-.login_signUp_toggle > p:hover {
-    color: #800002;
-}
-.switcherBtn {
-    background-color: white;
-    height: 3px;
+.updateProfileHeading{
+    color: white;
+    text-align: center;
+    font: 400 1.3vmax "Franklin Gothic Medium";
+    padding: 1.3vmax;
+    border-bottom: 1px solid white;
     width: 50%;
-    border: none;
-    transition: all 0.5s;
+    margin: auto;
 }
-.loginForm,
-.signUpForm {
+.updateProfileForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,17 +71,12 @@
     height: 70%;
     transition: all 0.5s;
 }
-.signUpForm{
-    transform: translateY(-100%) translateX(-100vmax);
-}
-.loginForm > div,
-.signUpForm > div {
+.updateProfileForm > div {
     display: flex;
     width: 100%;
     align-items: center;
 }
-.loginForm > div > input,
-.signUpForm > div > input {
+.updateProfileForm > div > input {
     padding: 1vmax 4vmax;
     padding-right: 1vmax;
     height: 100%;
@@ -108,33 +88,21 @@
     font: 300 0.9vmax cursive;
     outline: none;
 }
-.loginForm > div > svg,
-.signUpForm > div > svg {
+.updateProfileForm > div > svg {
     position: absolute;
     transform: translateX(1vmax);
     font-size: 1.6vmax;
     color: rgba(0, 0, 0, 0.432);
 }
-.loginForm > a {
-    color: white;
-    text-decoration: none;
-    align-self: flex-end;
-    transition: all 0.5s;
-    font: 500 0.8vmax "Franklin Gothic Medium";
-}
-.loginForm > a:hover {
-    cursor: pointer;
-    color: #AD0E82;;
-}
-#registerImage > img {
+#updateProfileImage > img {
     width: 3vmax;
     border-radius: 100%;
 }
-#registerImage > input {
+#updateProfileImage > input {
     display: flex;
     padding: 0;
 }
-#registerImage > input::file-selector-button {
+#updateProfileImage > input::file-selector-button {
     cursor: pointer;
     width: 100%;
     height: 5vh;
@@ -147,12 +115,11 @@
     color: black;
     background-color: white;
 }
-#registerImage > input::file-selector-button:hover {
+#updateProfileImage > input::file-selector-button:hover {
     background-color: #800002;
     color: white;
 }
-.loginBtn,
-.signUpBtn {
+.updateProfileBtn {
     border: none;
     background-color: #AD0E82;
     color: white;
@@ -165,64 +132,38 @@
     outline: none;
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.452);
 }
-.loginBtn:hover,
-.signUpBtn:hover {
+.updateProfileBtn:hover {
     background-color: #800002;
 }
-.shiftToLeft {
-    transform: translateX(-100%);
-}
-.shiftToNeutral {
-    transform: translateX(0%);
-}
-.shiftToNeutralForm {
-    transform: translateX(0%) translateY(-100%);
-}
-.shiftToRight {
-    transform: translateX(100%);
-}
 @media screen and (max-width: 600px) {
-    .LoginSignUpContainer {
+    .updateProfileContainer {
         background-color: black;
 
     }
-    .LoginSignUpBox{
+    .updateProfileBox{
         margin-top: 20vmax;
         width: 100vw;
         height: 95vh;
     }
-    .login_signUp_toggle{
-        height: 5vmax;
-    }
-    .login_signUp_toggle > p {
-        font: 300 1.5vmax "Franklin Gothic Medium";
-    }
-    .loginForm,
-    .signUpForm {
+    .updateProfileForm {
         padding: 5vmax;
     }
-    .loginForm > div > input,
-    .signUpForm > div > input {
+    .updateProfileForm > div > input {
         padding: 2.5vmax 5vmax;
         font: 300 1.7vmax cursive;
     }
-    .loginForm > div > svg,
-    .signUpForm > div > svg {
+    .updateProfileForm > div > svg {
         font-size: 2.8vmax;
     }
-    .loginForm > a {
-        font: 500 1.8vmax "Franklin Gothic Medium";
-    }
-    #registerImage > img {
+    #updateProfileImage > img {
         width: 8vmax;
         border-radius: 100%;
     }
-    #registerImage > input::file-selector-button {
+    #updateProfileImage > input::file-selector-button {
         height: 7vh;
         font: 400 1.8vh cursive;
     }
-    .loginBtn,
-    .signUpBtn {
+    .updateProfileBtn {
         font: 300 1.9vmax "Franklin Gothic Medium";
         padding: 1.8vmax;
     }
