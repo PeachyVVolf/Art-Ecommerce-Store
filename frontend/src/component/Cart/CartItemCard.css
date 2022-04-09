@@ -1,0 +1,29 @@
+.CartItemCard {
+    display: flex;
+    padding: 1vmax;
+    height: 8vmax;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.CartItemCard > img {
+    width: 5vmax;
+}
+.CartItemCard > div {
+    display: flex;
+    margin: 0.3vmax 1vmax;
+    flex-direction: column;
+}
+.CartItemCard > div > a {
+    font: 300 0.9vmax cursive;
+    color: white;
+    text-decoration: none;
+}
+.CartItemCard > div > span {
+    font: 300 0.9vmax "Franklin Gothic Medium";
+    color: white;
+}
+.CartItemCard > div > p {
+    color: #AD0E82;
+    font: 100 0.8vmax "Franklin Gothic Medium";
+    cursor: pointer;
+}

@@ -15,6 +15,10 @@ import UserOptions from './component/layout/Header/UserOptions';
 import Profile from './component/User/Profile';
 import ProtectedRoute from './component/Route/ProtectedRoute';
 import UpdateProfile from './component/User/UpdateProfile';
+import UpdatePassword from './component/User/UpdatePassword';
+import ForgotPassword from './component/User/ForgotPassword';
+import ResetPassword from './component/User/ResetPassword';
+import Cart from './component/Cart/Cart';
 
 function App() {
     
@@ -56,6 +60,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/password/update"
+          element={
+            <ProtectedRoute>
+              <UpdatePassword />
+            </ProtectedRoute>
+          }
+        />
+        <Route exact path='/password/forgot' element={<ForgotPassword />} />
+        <Route exact path='/password/reset/:token' element={<ResetPassword />} />
+        <Route exact path='cart' element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>

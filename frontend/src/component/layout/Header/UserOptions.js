@@ -6,6 +6,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListAltIcon from '@material-ui/icons/ListAlt';
+import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
 import { useAlert } from 'react-alert';
 import { logout } from '../../../actions/userAction';
@@ -24,8 +25,9 @@ const UserOptions = () => {
     if(isAuthenticated){
         options = [
             { icon: <SearchIcon/>, name:"Search", func: search},
-            { icon: <ListAltIcon/>, name: "Orders", func: orders},
+            { icon: <ShoppingCart/> , name:"Cart", func: cart},
             { icon: <PersonIcon/>, name: "Profile", func: account},
+            { icon: <ListAltIcon/>, name: "Orders", func: orders},
             { icon: <ExitToAppIcon/>, name: "LogOut", func: logoutUser},
         ]
         if(user.role==="admin"){
@@ -45,6 +47,9 @@ const UserOptions = () => {
     }
     function login() {
         navigate("/login");
+    }
+    function cart() {
+        navigate("/cart");
     }
     function dashboard() {
         navigate("/dashboard");

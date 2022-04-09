@@ -11,6 +11,7 @@ import ReactStars from 'react-rating-stars-component';
 import ReviewCard from './ReviewCard';
 import {useAlert} from "react-alert";
 import MetaData from '../layout/MetaData';
+import { addItemsToCart } from '../../actions/cartAction';
 
 const ProductDetails = ({classes}) => {
 
@@ -20,11 +21,28 @@ const ProductDetails = ({classes}) => {
     const params = useParams();
     const { product,loading, error } = useSelector(state=>state.productDetails);
 
+    const [quantity, setQuantity] = useState(1);
+
+    const increaseQuantity = () => {
+        if(product.Stock > quantity)
+            setQuantity(quantity + 1);
+    }
+
+    const decreaseQuantity = () => {
+        if(quantity > 1)
+            setQuantity(quantity - 1);
+    }
+
     const saveIntoSlides = async () => {
         product.images &&
         product.images.map((item, i) => {
            setImages(images => [...images, <img className={`carouselImage ${classes.carouselImage}`} src={item.url} alt={i}/>])
         });
+    }
+
+    const addToCartHandler = () => {
+        dispatch(addItemsToCart(params.id, quantity));
+        alert.success("Item Added to Cart.");
     }
 
     useLayoutEffect(() => {
@@ -74,14 +92,14 @@ const ProductDetails = ({classes}) => {
                                 <h1>{`Rs. ${product.price}`}</h1>
                                 <div className={`detailsBlock31 ${classes.detailsBlock31}`}>
                                     <div className={`detailsBlock311 ${classes.detailsBlock311}`}>
-                                        <button>-</button>
-                                        <input value="1" type="number" />
-                                        <button>+</button>
-                                    </div>{" "}
-                                    <button className={`addToCart ${classes.addToCart}`}>Add to Cart</button>
+                                        <button onClick={decreaseQuantity}>-</button>
+                                        <input readOnly type="number" value={quantity} />
+                                        <button onClick={increaseQuantity}>+</button>
+                                    </div>
+                                    <button onClick={addToCartHandler} className={`addToCart ${classes.addToCart}`}>Add to Cart</button>
                                 </div>
                                 <p>
-                                    Status: {" "}
+                                    Status:
                                     <b className={product.Stock < 1 ? classes.redColor : classes.greenColor}>
                                         {product.Stock < 1 ? "OutOfStock" : "InStock"}
                                     </b>

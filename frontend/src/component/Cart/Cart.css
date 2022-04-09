@@ -1,0 +1,19 @@
+.cartPage {
+    padding: 5vmax;
+}
+.cartHeader {
+    background-color: #AD0E82;
+    width: 90%;
+    box-sizing: border-box;
+    display: grid;
+    color: white;
+    margin: auto;
+    font: 300 0.7vmax "Franklin Gothic Medium";
+    grid-template-columns: 4fr 1fr 1fr;
+}
+.cartHeader > p {
+    margin: 10px;
+}
+.cartHeader > p:last-child {
+    text-align: end;
+}
