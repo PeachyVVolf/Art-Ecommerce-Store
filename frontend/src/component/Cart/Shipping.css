@@ -1,0 +1,99 @@
+.shippingContainer {
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+}
+.shippingBox {
+    width: 25vw;
+    height: 90vh;
+    background-color: black;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.shippingHeading {
+    text-align: center;
+    color: white;
+    margin: auto;
+    width: 50%;
+    font: 400 1.3vmax "Franklin Gothic Medium";
+    border-bottom: 1px solid #AD0E82;
+    padding: 1.3vmax;
+}
+.shippingForm {
+    display: flex;
+    transition: all 0.5s;
+    height: 80%;
+    justify-content: space-evenly;
+    padding: 2vmax;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+}
+.shippingForm > div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.shippingForm > div > input,
+.shippingForm > div > select {
+    padding: 1vmax 4vmax;
+    font: 300 0.9vmax cursive;
+    outline: none;
+    padding-right: 1vmax;
+    border: 1px solid #AD0E82;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.shippingForm > div > svg {
+    position: absolute;
+    color: black;
+    transform: translateX(1vmax);
+    font-size: 1.6vmax;
+}
+.shippingBtn {
+    border: none;
+    background-color: #AD0E82;
+    color: white;
+    margin: 2vmax;
+    outline: none;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 1vmax;
+    width: 100%;
+    font: 300 1vmax "Franklin Gothic Medium";
+    border-radius: 4px;
+}
+.shippingBtn:hover {
+    background-color: #800002;
+}
+
+@media screen and (max-width: 600px) {
+    .shippingBox {
+        width: 100vw;
+        height: 95vh;
+    }
+    .shippingHeading {
+        font: 400 6vw "Franklin Gothic Medium";
+        padding: 5vw;
+    }
+    .shippingForm {
+        padding: 11vw;
+    }
+    .shippingForm > div > input,
+    .shippingForm > div > select {
+        padding: 5vw 10vw;
+        font: 300 4vw cursive;
+    }
+    .shippingForm > div > svg {
+        font-size: 6vw;
+        transform: translateX(3vw);
+    }
+    .shippingBtn {
+        font: 300 4vw "Franklin Gothic Medium";
+        padding: 4vw;
+    }
+}

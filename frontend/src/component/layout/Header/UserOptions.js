@@ -17,6 +17,7 @@ const UserOptions = () => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const {isAuthenticated, user} = useSelector(state => state.user);
+    const { cartItems } = useSelector(state => state.cart);
 
     const [open, setOpen] = useState(false);
 
@@ -25,7 +26,7 @@ const UserOptions = () => {
     if(isAuthenticated){
         options = [
             { icon: <SearchIcon/>, name:"Search", func: search},
-            { icon: <ShoppingCart/> , name:"Cart", func: cart},
+            { icon: <ShoppingCart style={{color:cartItems.length>0? "#AD0E82": "unset"}}/> , name:`Cart(${cartItems.length})`, func: cart},
             { icon: <PersonIcon/>, name: "Profile", func: account},
             { icon: <ListAltIcon/>, name: "Orders", func: orders},
             { icon: <ExitToAppIcon/>, name: "LogOut", func: logoutUser},
@@ -87,7 +88,7 @@ const UserOptions = () => {
             }
           >
               {options.map((item) => (
-                  <SpeedDialAction key={item.name} icon={item.icon} tooltipTitle={item.name} onClick={item.func} /> 
+                  <SpeedDialAction key={item.name} icon={item.icon} tooltipTitle={item.name} tooltipOpen={window.innerWidth <= 600? true : false} onClick={item.func} /> 
               ))}
           </SpeedDial>
       </Fragment>

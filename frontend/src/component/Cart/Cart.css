@@ -1,3 +1,33 @@
+.emptyCart {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    padding: 10vmax;
+}
+.emptyCart > svg {
+    color: #AD0E82;
+    font-size: 5vmax;
+}
+.emptyCart > p {
+    font-size: 2vmax;
+}
+.emptyCart > a {
+    background-color: #AD0E82;
+    color: white;
+    text-decoration: none;
+    font: 400 1vmax "Franklin Gothic Medium";
+    padding: 1vmax 3vmax;
+    border-radius: 30px;
+    transition: all 0.5s;
+}
+.emptyCart > a:hover{
+    background-color: #800002;
+    transform: scale(1.05);
+}
 .cartPage {
     padding: 5vmax;
 }
@@ -16,4 +46,123 @@
 }
 .cartHeader > p:last-child {
     text-align: end;
+}
+.cartContainer {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+}
+.cartInput {
+    height: 8vmax;
+    align-items: center;
+    display: flex;
+}
+.cartInput > button {
+    border: none;
+    background-color: #AD0E82;
+    color: white;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 0.5vmax;
+}
+.cartInput > button:hover {
+    background-color: #800002;
+}
+.cartInput > input {
+    border: none;
+    color: black;
+    font: 400 0.8vmax "Franklin Gothic Medium";
+    width: 1vmax;
+    padding: 0.5vmax;
+    outline: none;
+    text-align: center;
+}
+.cartSubtotal {
+    display: flex;
+    padding: 0.5vmax;
+    box-sizing: border-box;
+    font: 300 1vmax cursive;
+    justify-content: flex-end;
+    color: white;
+    align-items: center;
+    height: 8vmax;
+}
+.cartGrossProfit {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+}
+.cartGrossProfitBox {
+    border-top: 3px solid #AD0E82;
+    box-sizing: border-box;
+    margin: 1vmax 4vmax;
+    justify-content: space-between;
+    display: flex;
+    font: 300 1vmax "Franklin Gothic Medium";
+    padding: 2vmax 0;
+}
+.checkOutBtn {
+    justify-content: flex-end;
+    display: flex;
+}
+.checkOutBtn > button {
+    background-color: #AD0E82;
+    border-radius: 30px;
+    padding: 0.8vmax 4vmax;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 1vmax 4vmax;
+    font: 300 0.8vmax "Franklin Gothic Medium";
+    width: 50%;
+    transition: all 0.5s;
+}
+.checkOutBtn > button:hover {
+    background-color: #800002;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 600px) {
+    .cartPage {
+        padding: 0;
+        min-height: 60vh;
+    }
+    .cartHeader {
+        width: 100%;
+        font: 300 1.7vmax "Franklin Gothic Medium";
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+    .cartContainer {
+        width: 100%;
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+    .cartInput {
+        height: 20vmax;
+    }
+    .cartInput > button {
+        padding: 1.5vmax;
+    }
+    .cartInput > input {
+        width: 2vmax;
+        padding: 1.5vmax;
+        font: 400 1.8vmax "Franklin Gothic Medium";
+    }
+    .cartSubtotal {
+        padding: 1.5vmax;
+        font: 300 2vmax "Franklin Gothic Medium";
+        height: 20vmax;
+    }
+    .cartGrossProfit {
+        display: grid;
+        grid-template-columns: 0fr 2fr;
+    }
+    .cartGrossProfitBox {
+        padding: 2vmax;
+        font: 300 2vmax "Frankling Gothic Medium";
+    }
+    .checkOutBtn > button {
+        padding: 2vmax 4vmax;
+        font: 300 2vmax "Franklin Gothic Medium";
+        width: 100%;
+    }
 }
