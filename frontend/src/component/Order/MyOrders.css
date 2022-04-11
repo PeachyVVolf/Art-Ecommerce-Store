@@ -1,0 +1,71 @@
+.myOrdersPage {
+    width: 100vw;
+    padding: 0 7vmax;
+    max-width: 100%;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    flex-direction: column;
+    display: flex;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+#myOrdersHeading {
+    text-align: center;
+    font: 400 1.2vmax "Franklin Gothic Medium";
+    background-color: #AD0E82;
+    color: white;
+    transition: all 0.5s;
+    padding: 0.5vmax;
+    box-sizing: border-box;
+}
+.myOrdersTable {
+    background-color: black;
+    color: white;
+
+}
+.myOrdersTable div {
+    font: 300 1vmax "Franklin Gothic Medium";
+    color: white;
+    border: none;
+}
+.myOrdersTable a {
+    color: #AD0E82;
+    transition: all 0.5s;
+}
+.myOrdersTable a:hover {
+    color: #800002;
+}
+.MuiDataGrid-columnHeader {
+    background-color: #AD0E82;
+    padding: 1vmax !important;
+}
+.MuiDataGrid-columnHeader div {
+    color: white;
+    font: 500 1.1vmax "Frankin Gothic Medium" !important;
+}
+.MuiDataGrid-iconSeparator {
+    display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+    .myOrdersPage {
+        padding: 0;
+        height: 93vh;
+    }
+    #myOrdersHeading {
+        font: 400 2.2vmax "Franklin Gothic Medium";
+        padding: 4vw;
+    }
+    .myOrdersTable div {
+        font: 300 4vw "Franklin Gothic Medium";
+    }
+    .MuiDataGrid-columnHeader {
+        padding: 20px !important;
+    }
+    .MuiDataGrid-columnHeader div {
+        font: 500 5vw "Franklin Gothic Medium" !important; 
+    }
+}

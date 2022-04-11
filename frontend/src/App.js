@@ -21,9 +21,21 @@ import ResetPassword from './component/User/ResetPassword';
 import Cart from './component/Cart/Cart';
 import Shipping from './component/Cart/Shipping';
 import ConfirmOrder from './component/Cart/ConfirmOrder';
+import axios from 'axios';
+import Payment from './component/Cart/Payment';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import OrderSuccess from './component/Cart/OrderSuccess';
+import MyOrders from './component/Order/MyOrders';
+import OrderDetails from './component/Order/OrderDetails';
 
 function App() {
-    
+  const [stripeApiKey, setStripeApiKey] = React.useState("");
+  
+  async function getStripeApiKey() {
+    const {data} = await axios.get("/api/v1/stripeapikey");
+    setStripeApiKey(data.stripeApiKey);
+  }
 
   React.useEffect(() => {
     WebFont.load({
@@ -33,6 +45,7 @@ function App() {
     });
 
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
 
   return (
@@ -58,7 +71,7 @@ function App() {
           path="/me/update"
           element={
             <ProtectedRoute>
-              <UpdateProfile />
+              <UpdateProfile/>
             </ProtectedRoute>
           }
         />
@@ -89,6 +102,39 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/process/payment"
+          element={
+            <ProtectedRoute>
+              <Payment stripeApiKey={stripeApiKey}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <ProtectedRoute>
+              <OrderSuccess />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <MyOrders />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/order/:id"
+          element={
+            <ProtectedRoute>
+              <OrderDetails />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
       <Footer />
     </BrowserRouter>

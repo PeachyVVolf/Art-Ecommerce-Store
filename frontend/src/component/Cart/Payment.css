@@ -1,0 +1,80 @@
+.paymentContainer {
+    display: grid;
+    background-color: black;
+    place-items: center;
+    height: 65vh;
+    margin: 2vmax;
+}
+.paymentForm {
+    width: 22%;
+    height: 100%;
+}
+.paymentForm > p {
+    font: 400 2vmax "Franklin Gothic Medium";
+    color: white;
+    border-bottom: 1px solid white;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 1vmax 0;
+}
+.paymentForm > div {
+    display: flex;
+    align-items: center;
+    margin: 2vmax 0;
+}
+.paymentInput {
+    outline: none;
+    border-radius: 4px;
+    padding: 1vmax 4vmax;
+    padding-right: 1vmax;
+    box-sizing: border-box;
+    border: 1px solid white;
+    width: 100%;
+}
+.paymentForm > div > svg {
+    position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.6vmax;
+    color: white;
+}
+.paymentFormBtn {
+    border: none;
+    background-color: #AD0E82;
+    width: 100%;
+    padding: 0.8vmax;
+    font: 300 0.9vmax "Franklin Gothic Medium";
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+}
+.paymentFormBtn:hover {
+    background-color: #800002;
+    transform: scale(1.05);
+}
+@media screen and (max-width: 600px) {
+    .paymentForm {
+        width: 90%;
+    }
+    .paymentForm > p {
+        font: 400 8vw "Franklin Gothic Medium";
+        padding: 4vw 0;
+        width: 60%;
+    }
+    .paymentForm > div {
+        display: flex;
+        align-items: center;
+        margin: 10vw 0;
+    }
+    .paymentInput {
+        padding: 4vw 10vw;
+    }
+    .paymentForm > div > svg {
+        font-size: 6vw;
+    }
+    .paymentFormBtn {
+        font: 300 4vw "Franklin Gothic Medium";
+        padding: 4vw;
+    }
+}
