@@ -4,7 +4,7 @@ import styles from './ProductDetailsStyles';
 import { withStyles } from '@material-ui/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import './productDetailsStyles.css';
-import { clearErrors, getProductDetails } from '../../actions/productAction';
+import { clearErrors, getProductDetails, newReview } from '../../actions/productAction';
 import { useParams } from 'react-router-dom';
 import Loader from '../layout/Loader/Loader';
 import ReactStars from 'react-rating-stars-component';
@@ -12,6 +12,8 @@ import ReviewCard from './ReviewCard';
 import {useAlert} from "react-alert";
 import MetaData from '../layout/MetaData';
 import { addItemsToCart } from '../../actions/cartAction';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@material-ui/core';
+import { Rating } from '@material-ui/lab';
 
 const ProductDetails = ({classes}) => {
 
@@ -22,6 +24,19 @@ const ProductDetails = ({classes}) => {
     const { product,loading, error } = useSelector(state=>state.productDetails);
 
     const [quantity, setQuantity] = useState(1);
+    const [rating, setRating] = useState(0);
+    const [open, setOpen] = useState(false);
+    const [comment, setComment] = useState("");
+
+    const submitReviewToggle = () => {
+        setOpen(!open);
+    }
+
+    const reviewSubmitHandler = () => {
+        const myForm = new FormData();
+
+        // 
+    }
 
     const increaseQuantity = () => {
         if(product.Stock > quantity)
@@ -96,7 +111,7 @@ const ProductDetails = ({classes}) => {
                                         <input readOnly type="number" value={quantity} />
                                         <button onClick={increaseQuantity}>+</button>
                                     </div>
-                                    <button onClick={addToCartHandler} className={`addToCart ${classes.addToCart}`}>Add to Cart</button>
+                                    <button disabled={product.Stock < 1 ? true : false} onClick={addToCartHandler} className={`addToCart ${classes.addToCart}`}>Add to Cart</button>
                                 </div>
                                 <p>
                                     Status:
@@ -110,11 +125,38 @@ const ProductDetails = ({classes}) => {
                                 Description: <p>{`description ${product.description}`}</p>
                             </div>
 
-                            <button className={`submitReview ${classes.submitReview}`}>Submit Review</button>
+                            <button onClick={submitReviewToggle} className={`submitReview ${classes.submitReview}`}>Submit Review</button>
 
                         </div>
                     </div>
                     <h3 className='reviewsHeading'>REVIEWS</h3>
+
+                    <Dialog
+                        aria-labelledby='simple-dialog-title'
+                        open={open}
+                        onClose={submitReviewToggle}
+                    >
+                        <DialogTitle>Submit Review</DialogTitle>
+                        <DialogContent className='submitDialog'>
+                            <Rating
+                                onChange={(e) => setRating(e.target.value)}
+                                value={rating}
+                                size="large"
+                            />
+                            <textarea
+                                className='submitDialogTextArea'
+                                cols="30"
+                                rows="5"
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                            ></textarea>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={submitReviewToggle} color='secondary'>Cancel</Button>
+                            <Button onClick={} color="primary">Submit</Button>
+                        </DialogActions>
+                    </Dialog>
+
                     {product.reviews && product.reviews[0] ? (
                         <div className='reviews'>
                             {product.reviews && product.reviews.map((review) => <ReviewCard review={review} />)}
